@@ -1,0 +1,1 @@
+$comp = Get-ADComputer -Filter * -Properties name | select name | % {try{$res=Test-Connection $_.name -count 1 -ea stop}catch{write-host -f red $($_.name) - DOWN} if ($res) {write-host -f green $($_.name) - UP}}
