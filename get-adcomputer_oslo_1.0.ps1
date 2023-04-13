@@ -1,7 +1,6 @@
 $comp = get-adcomputer -filter * -properties *
 $list = @{}
 foreach ($i in $comp)
-
 {
  $result=$null
  try {$result=Test-Connection -ComputerName $i.name -count 1 -ea stop}
